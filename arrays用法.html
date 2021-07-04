@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array用法</title>
+</head>
+
+<body>
+    <script>
+        // 创建一个数组
+        let fruits = ['Apple', 'Bnana']
+        console.log(fruits.length)
+
+        //  访问一个数组的元素
+        console.log(fruits[0])
+
+        // 循环一个数组
+        fruits.forEach((item, index, array) => {
+            console.log(item);
+            console.log(index);
+        });
+
+        // 添加一个元素到数组的末尾
+        fruits.push("Orange");
+        console.log(fruits);
+
+        // 移除末尾的一个元素
+        fruits.pop();
+        console.log(fruits);
+
+        // 移除第一个元素
+        fruits.shift();
+        console.log(fruits);
+
+        // 在第一个位置添加一个元素
+        fruits.unshift("Strawberry");
+        console.log(fruits);
+
+
+        // 查找指定元素的位置
+        fruits.push('Mango');
+        let indx = fruits.indexOf("Strawberry");
+        console.log(indx);
+
+        // 通过索引移除掉一个元素,返回移除的元素
+        console.log(fruits);
+        let removedItem = fruits.splice(indx, 1);
+        console.log(removedItem);
+
+        //  at 使用索引返回值
+        // let fruit = fruits.at(-1);
+        // console.log(fruit)
+
+        // 两个列表进行合并
+        const letters = ['a', 'b', 'c'];
+        const numbers = [1, 2, 3];
+        let result = letters.concat(numbers);
+        console.log(result);
+
+        // join
+        const elements = ['Fire', 'Air', 'Water'];
+        let s = elements.join(",")
+        console.log(s)
+
+        // keys()
+        const array1 = ['a', 'b', 'c'];
+        const iterator = array1.keys();
+        for (const key of iterator) {
+            console.log(key)
+        }
+
+        // map()
+        let array2 = [1, 4, 9, 16];
+        let map1 = array2.map(x => x * 2);
+        console.log(`map:`, map1);
+
+        // of()
+        let x = Array.of(1);
+        console.log(`x`, x);
+
+
+        // Array.prototype.reduce()
+        let array3 = [1, 2, 3, 4];
+        console.log(array3.reduce((x, y) => x + y));
+        console.log(array3.reduce((x, y) => x + y, 5));
+
+
+        // Array.prototype.reverse()
+        let array4 = [1, 2, 3];
+        console.log(array4.reverse());
+
+        /*slice()
+        slice(start)
+        slice(start, end) 左闭右开区间*/
+        let array5 = [1, 2, 3, 4, 5];
+        console.log(array5.slice(2, 3));
+        console.log(array5.slice(2, 5));
+
+        // Array.prototype.some()
+        let array6 = [1, 2, 3, 4, 5];
+        let even = (element) => element % 2 === 0;
+        console.log(array6.some(even));
+
+        // Array.prototype.splice() 相当于插入操作
+        let months = ['Jan', 'March', 'April', 'June'];
+        months.splice(1, 0, 'Feb'); //  在第一个位置删除0个数据，新增一个‘FEB’
+        console.log(months);
+        // 在第四个位置替换元素，相当于，删除一个元素‘June’，并增加一个‘May’
+        let a = months.splice(0, 2, 'May');
+        console.log(months);
+        console.log(a);
+    </script>
+
+</body>
+
+</html>
